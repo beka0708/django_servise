@@ -66,9 +66,9 @@ AUTH_USER_MODEL = "user.User"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": config("NAME_DB"),
-        "USER": config("USER_DB"),
-        "PASSWORD": config("PASSWORD_DB"),
+        "NAME": config("POSTGRES_DB"),
+        "USER": config("POSTGRES_USER"),
+        "PASSWORD": config("POSTGRES_PASSWORD"),
         "HOST": config("HOST_DB"),
         "PORT": config("PORT_DB"),
     }
