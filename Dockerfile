@@ -8,6 +8,8 @@ COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
 
+RUN python manage.py collectstatic --no-input
+
 COPY . .
 
 CMD ["gunicorn", "main.wsgi:application", "--bind", "0.0.0.0:8000"]
