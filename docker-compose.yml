@@ -8,10 +8,8 @@ services:
       - .:/app
     ports:
       - "8000:8000"
-    environment:
-      - DJANGO_SUPERUSER_USERNAME=${DJANGO_SUPERUSER_USERNAME}
-      - DJANGO_SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL}
-      - DJANGO_SUPERUSER_PASSWORD=${DJANGO_SUPERUSER_PASSWORD}
+    env_file:
+      - .env
     depends_on:
       - db
 
