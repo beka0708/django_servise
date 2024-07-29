@@ -248,3 +248,4 @@ poetry.toml
 
 # LSP config files
 pyrightconfig.json
+static

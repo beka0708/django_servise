@@ -11,10 +11,11 @@ ROLE_CHOICES = [
 
 class User(AbstractUser):
     email = models.EmailField(unique=True, verbose_name="Email")
-    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default=SUBSCRIBER,
-                            verbose_name="Роль")
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    role = models.CharField(
+        max_length=20, choices=ROLE_CHOICES, default=SUBSCRIBER, verbose_name="Роль"
+    )
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = ["username"]
 
     class Meta:
         verbose_name = "Пользователь"

@@ -9,8 +9,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'email', 'username', 'role', 'password', 'confirm_password']
-        extra_kwargs = {'password': {'write_only': True}}
+        fields = ["id", "email", "username", "role", "password", "confirm_password"]
+        extra_kwargs = {"password": {"write_only": True}}
 
     def validate(self, data):
         password = data.get("password")
@@ -20,13 +20,19 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError({"password": "Пароли не совпадают."})
 
         if len(password) < 8:
-            raise serializers.ValidationError({"password": "Пароль должен быть не короче 8 символов."})
+            raise serializers.ValidationError(
+                {"password": "Пароль должен быть не короче 8 символов."}
+            )
 
         if not re.search(r"\d", password):
-            raise serializers.ValidationError({"password": "Пароль должен содержать хотя бы одну цифру."})
+            raise serializers.ValidationError(
+                {"password": "Пароль должен содержать хотя бы одну цифру."}
+            )
 
         if not re.search(r"[A-Za-z]", password):
-            raise serializers.ValidationError({"password": "Пароль должен содержать хотя бы одну букву."})
+            raise serializers.ValidationError(
+                {"password": "Пароль должен содержать хотя бы одну букву."}
+            )
 
         return data
 
