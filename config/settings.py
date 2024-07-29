@@ -13,13 +13,6 @@ SECRET_KEY = config("SECRET_KEY")
 
 DEBUG = config("DEBUG", cast=bool)
 
-username = config('DJANGO_SUPERUSER_USERNAME')
-email = config('DJANGO_SUPERUSER_EMAIL')
-password = config('DJANGO_SUPERUSER_PASSWORD')
-
-if not User.objects.filter(username=username).exists():
-    User.objects.create_superuser(username, email, password)
-
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
