@@ -10,6 +10,8 @@ RUN pip install -r requirements.txt
 
 RUN python manage.py collectstatic --noinput
 
+RUN python createsuperuser.py
+
 COPY . .
 
 CMD ["gunicorn", "main.wsgi:application", "--bind", "0.0.0.0:8000"]
